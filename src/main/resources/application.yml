@@ -1,0 +1,22 @@
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8100/eureka
+    registerWithEureka: true
+    fetchRegistry: true
+server:
+  port: 8050
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          lower-case-service-id: true
+        enabled: true
+      routes:
+        - id: lb-route
+          uri: lb://customerAppli
+          predicates:
+            - Path=/**
