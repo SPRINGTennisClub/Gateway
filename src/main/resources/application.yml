@@ -1,7 +1,7 @@
 eureka:
   client:
     service-url:
-      defaultZone: http://localhost:8100/eureka
+      defaultZone: http://localhost:8200/eureka
     registerWithEureka: true
     fetchRegistry: true
 server:
@@ -17,6 +17,6 @@ spring:
         enabled: true
       routes:
         - id: lb-route
-          uri: lb://customerAppli
+          uri: lb://player-service
           predicates:
             - Path=/**
